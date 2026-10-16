@@ -1,8 +1,26 @@
 <script>
 	let { children, ...props } = $props();
+	import { loadStripe } from '@stripe/stripe-js';
+	import { STRIPE_KEY } from '$app/env/public';
+	import { goto } from '$app/navigation';
+
+	async function onclick() {
+		try {
+			const stripe = await loadStripe(STRIPE_KEY);
+			const response = await fetch('/api/checkout', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' }
+			});
+
+			const { url } = await response.json();
+			window.location.href = url;
+		} catch (error) {
+			goto('/checkout/failure');
+		}
+	}
 </script>
 
-<button {...props}>{@render children()}</button>
+<button {...props} {onclick}>{@render children()}</button>
 
 <style>
 	button {

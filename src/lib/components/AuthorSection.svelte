@@ -21,7 +21,7 @@
 				lifestyle he once dreamed of.
 			</p>
 		</div>
-		<img src={authorPic} alt="author profile picture" />
+		<img src={authorPic} alt="Nikalas Fischer Pic" />
 	</div>
 </section>
 

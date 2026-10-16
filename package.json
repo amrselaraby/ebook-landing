@@ -29,5 +29,9 @@
 	"imports": {
 		"#lib": "./src/lib/index.js",
 		"#lib/*": "./src/lib/*"
+	},
+	"dependencies": {
+		"@stripe/stripe-js": "^10.1.0",
+		"stripe": "^23.0.0"
 	}
 }
